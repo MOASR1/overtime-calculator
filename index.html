@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="حاسبة العمل الإضافي السريعة">
+  <title>حاسبة العمل الإضافي ⚡️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <div class="badge">⚡️ سريعة وبسيطة</div>
+      <h1>حاسبة العمل الإضافي</h1>
+      <p>أدخل بيانات العمل الإضافي واحصل على الاستحقاق خلال ثوانٍ.</p>
+    </section>
+
+    <section class="card calculator-card">
+      <div class="section-title">
+        <span>بيانات العمل الإضافي</span>
+      </div>
+
+      <div class="grid">
+        <label class="field">
+          <span>ساعات العمل الإضافي</span>
+          <input id="hours" type="number" min="0" step="1" inputmode="numeric" placeholder="مثال: 2">
+        </label>
+
+        <label class="field">
+          <span>دقائق العمل الإضافي</span>
+          <input id="minutes" type="number" min="0" max="59" step="1" inputmode="numeric" placeholder="مثال: 30">
+        </label>
+
+        <label class="field">
+          <span>الراتب الأساسي</span>
+          <div class="input-wrap">
+            <input id="basicSalary" type="number" min="0" step="0.01" inputmode="decimal" placeholder="مثال: 5000">
+            <span>ر.س</span>
+          </div>
+        </label>
+
+        <label class="field">
+          <span>الراتب الإجمالي</span>
+          <div class="input-wrap">
+            <input id="totalSalary" type="number" min="0" step="0.01" inputmode="decimal" placeholder="مثال: 6000">
+            <span>ر.س</span>
+          </div>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="calculateBtn" class="btn btn-primary">احسب الاستحقاق</button>
+        <button id="resetBtn" class="btn btn-secondary" type="button">إعادة تعيين</button>
+      </div>
+
+      <p id="error" class="error" hidden></p>
+    </section>
+
+    <section id="results" class="results" hidden>
+      <div class="result-card money-card">
+        <span class="result-label">💵 استحقاق العمل الإضافي</span>
+        <strong id="overtimeAmount">0.00</strong>
+        <span class="unit">ريال سعودي</span>
+      </div>
+
+      <div class="result-card leave-card">
+        <span class="result-label">🏖️ الإجازة التعويضية</span>
+        <strong id="leaveDays">0</strong>
+        <span id="leaveDetails" class="unit">—</span>
+      </div>
+
+      <div class="details-card">
+        <div class="details-title">تفاصيل الحساب</div>
+        <div class="detail-row">
+          <span>إجمالي ساعات العمل الإضافي</span>
+          <b id="totalOvertime">0</b>
+        </div>
+        <div class="detail-row">
+          <span>أجر ساعة الراتب الإجمالي</span>
+          <b id="totalHourly">0.00 ر.س</b>
+        </div>
+        <div class="detail-row">
+          <span>50% من أجر ساعة الراتب الأساسي</span>
+          <b id="basicHalfHourly">0.00 ر.س</b>
+        </div>
+        <div class="detail-row">
+          <span>أجر ساعة العمل الإضافي</span>
+          <b id="overtimeHourly">0.00 ر.س</b>
+        </div>
+      </div>
+    </section>
+
+    <button id="articleBtn" class="article-button" type="button">
+      📄 المادة 107 من نظام العمل
+    </button>
+
+    <footer>
+      <span>حاسبة العمل الإضافي</span>
+      <span>•</span>
+      <span>نسخة تجريبية</span>
+    </footer>
+  </main>
+
+  <div id="articleModal" class="modal" hidden>
+    <div class="modal-backdrop"></div>
+    <section class="modal-box" role="dialog" aria-modal="true" aria-labelledby="articleTitle">
+      <button id="closeModal" class="close-btn" type="button" aria-label="إغلاق">×</button>
+      <div class="modal-badge">المادة 107</div>
+      <h2 id="articleTitle">العمل الإضافي</h2>
+
+      <p><strong>1.</strong> يجب على صاحب العمل أن يدفع للعامل أجراً إضافياً عن ساعات العمل الإضافية يوازي أجر الساعة مضافاً إليه (50%) من أجره الأساسي، ويجوز لصاحب العمل بموافقة العامل أن يحتسب للعامل أيام إجازة تعويضية مدفوعة الأجر بدلاً عن الأجر المستحق للعامل لساعات العمل الإضافية. وتبين اللائحة الأحكام المتصلة بذلك.</p>
+
+      <p><strong>2.</strong> إذا كان التشغيل في المنشأة على أساس المعيار الأسبوعي لساعات العمل تعد الساعات التي تزيد على الساعات المتخذة لهذا المعيار ساعات عمل إضافية.</p>
+
+      <p><strong>3.</strong> تعد جميع ساعات العمل التي تؤدى في أيام العطل والأعياد ساعات إضافية.</p>
+
+      <div class="modal-note">هذه الحاسبة تستخدم المعادلة المحددة في هذه النسخة من التطبيق.</div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
